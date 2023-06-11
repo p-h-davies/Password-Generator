@@ -1,6 +1,4 @@
 
-
-
 //Characters
 var possible = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789!@#$%^&*()';
 var numbers = "0123456789";
@@ -10,28 +8,41 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 
-
-
-
 function writePassword() {
-  const pwlength = window.prompt("How many characters do you want your password to be? Choose a number between 8-128")
 
-  // If desired length is too short or long
+  //Questions
+
+  var pwlength = window.prompt("How many characters do you want your password to be? Choose a number between 8-128")
 
   if (pwlength < 8 || pwlength > 128) {
-    const tryagain = window.confirm("Sorry - password length must be between 8-128 characters. Try again?")
+    var tryAgain = window.confirm("Sorry - password length must be between 8-128 characters. Try again?")
+  } if ((tryAgain)) {
+    var pwlength = window.prompt("How many characters do you want your password to be? Choose a number between 8-128")
   }
 
-  const includeNumbers = window.confirm("Do you want to include numbers")
+  var includeNumbers = window.confirm("Do you want to include numbers")
 
-  const includeCapitalLetters = window.confirm("Do you want to include capital letters")
+  var includeCapitalLetters = window.confirm("Do you want to include capital letters")
 
-  const includeLowerCase = window.confirm("Do you want to include lowercase letters?")
+  var includeLowerCase = window.confirm("Do you want to include lowercase letters?")
 
-  const includeSpecial = window.confirm("Do you want to include special characters")
+  var includeSpecial = window.confirm("Do you want to include special characters")
 
+
+  if ((!includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
+    var tryPreferencesAgain = window.confirm("Sorry, you must choose at least one character type. Try again?")
+  } if ((tryPreferencesAgain)) {
+    var includeNumbers = window.confirm("Do you want to include numbers")
+
+    var includeCapitalLetters = window.confirm("Do you want to include capital letters")
+
+    var includeLowerCase = window.confirm("Do you want to include lowercase letters?")
+
+    var includeSpecial = window.confirm("Do you want to include special characters")
+  }
 
   //Password Generation
+
   function displaypass(length) {
     let result = ' ';
     if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
@@ -45,7 +56,6 @@ function writePassword() {
       charactersLength = numbers.length
       for (let i = 0; i < length; i++) {
         result += numbers.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     // Capitals only
@@ -53,7 +63,6 @@ function writePassword() {
       charactersLength = uppercase.length
       for (let i = 0; i < length; i++) {
         result += uppercase.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     // Lowercase Only
@@ -61,7 +70,6 @@ function writePassword() {
       charactersLength = lowercase.length
       for (let i = 0; i < length; i++) {
         result += lowercase.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     // Special Characters Only
@@ -69,7 +77,6 @@ function writePassword() {
       charactersLength = specialchars.length
       for (let i = 0; i < length; i++) {
         result += specialchars.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Numbers & Capitals
@@ -77,7 +84,6 @@ function writePassword() {
       charactersLength = (numbers + uppercase).length
       for (let i = 0; i < length; i++) {
         result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Numbers & Lowercase
@@ -85,7 +91,6 @@ function writePassword() {
       charactersLength = (numbers + lowercase).length
       for (let i = 0; i < length; i++) {
         result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Numbers & Special Characters
@@ -93,7 +98,6 @@ function writePassword() {
       charactersLength = (numbers + specialchars).length
       for (let i = 0; i < length; i++) {
         result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Capitals & Lowercase
@@ -101,7 +105,6 @@ function writePassword() {
       charactersLength = (uppercase + lowercase).length
       for (let i = 0; i < length; i++) {
         result += uppercase.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Capitals & Special Characters
@@ -109,7 +112,6 @@ function writePassword() {
       charactersLength = (uppercase + specialchars).length
       for (let i = 0; i < length; i++) {
         result += uppercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Lowercase & Special Characters
@@ -117,30 +119,28 @@ function writePassword() {
       charactersLength = (lowercase + specialchars).length
       for (let i = 0; i < length; i++) {
         result += lowercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
       }
     }
     //Numbers, Capitals & Lowercase
     if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
       charactersLength = (numbers + uppercase + lowercase).length
       for (let i = 0; i < length; i++) {
-        result += number.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
+        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers, Capitals & Specials
     if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
       charactersLength = (numbers + uppercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += number.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
-        var password = (result)
+        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
+
       }
     }
     //Numbers, Lowercase & Specials 
     if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
       charactersLength = (numbers + lowercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += number.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
+        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
 
       }
     }
@@ -152,16 +152,16 @@ function writePassword() {
 
       }
     }
-
     return result;
   }
+  //Display Password
   window.confirm(displaypass(pwlength))
   return;
 }
 
 
 
-// Button Listener
+//Button Listener
 
 let generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
