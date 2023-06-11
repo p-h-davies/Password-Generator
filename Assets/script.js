@@ -14,10 +14,12 @@ function writePassword() {
 
   var pwlength = window.prompt("How many characters do you want your password to be? Choose a number between 8-128")
 
-  if (pwlength < 8 || pwlength > 128) {
+  if (pwlength < 7 || pwlength > 129) {
     var tryAgain = window.confirm("Sorry - password length must be between 8-128 characters. Try again?")
   } if ((tryAgain)) {
     var pwlength = window.prompt("How many characters do you want your password to be? Choose a number between 8-128")
+  } if ((pwlength < 7 || pwlength > 129) & (!tryAgain)) {
+    return
   }
 
   var includeNumbers = window.confirm("Do you want to include numbers")
@@ -45,117 +47,118 @@ function writePassword() {
 
   function displaypass(length) {
     let result = ' ';
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
       charactersLength = possible.length
       for (let i = 0; i < length; i++) {
         result += possible.charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     // Numbers Only
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
       charactersLength = numbers.length
       for (let i = 0; i < length; i++) {
         result += numbers.charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     // Capitals only
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
       charactersLength = uppercase.length
       for (let i = 0; i < length; i++) {
         result += uppercase.charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     // Lowercase Only
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
       charactersLength = lowercase.length
       for (let i = 0; i < length; i++) {
         result += lowercase.charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     // Special Characters Only
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
       charactersLength = specialchars.length
       for (let i = 0; i < length; i++) {
         result += specialchars.charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers & Capitals
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (!includeSpecial)) {
       charactersLength = (numbers + uppercase).length
       for (let i = 0; i < length; i++) {
-        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength))
+        result += (numbers + uppercase).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers & Lowercase
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
       charactersLength = (numbers + lowercase).length
       for (let i = 0; i < length; i++) {
-        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
+        result += (numbers + lowercase).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers & Special Characters
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (!includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
       charactersLength = (numbers + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
+        result += (numbers + specialchars).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Capitals & Lowercase
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
       charactersLength = (uppercase + lowercase).length
       for (let i = 0; i < length; i++) {
-        result += uppercase.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
+        result += (uppercase + lowercase).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Capitals & Special Characters
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
       charactersLength = (uppercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += uppercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
+        result += (uppercase + specialchars).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Lowercase & Special Characters
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
       charactersLength = (lowercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += lowercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
+        result += (lowercase + specialchars).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers, Capitals & Lowercase
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (!includeSpecial)) {
       charactersLength = (numbers + uppercase + lowercase).length
       for (let i = 0; i < length; i++) {
-        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength))
+        result += (numbers + uppercase + lowercase).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers, Capitals & Specials
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (includeCapitalLetters) & (!includeLowerCase) & (includeSpecial)) {
       charactersLength = (numbers + uppercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + uppercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
-
+        result += (numbers + uppercase + specialchars).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Numbers, Lowercase & Specials 
-    if (pwlength > 8 & pwlength < 128 & (includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (includeNumbers) & (!includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
       charactersLength = (numbers + lowercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += numbers.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
-
+        result += (numbers + lowercase + specialchars).charAt(Math.floor(Math.random() * charactersLength))
       }
     }
     //Capitals, Lowercase & Specials
-    if (pwlength > 8 & pwlength < 128 & (!includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
+    if (pwlength > 7 & pwlength < 129 & (!includeNumbers) & (includeCapitalLetters) & (includeLowerCase) & (includeSpecial)) {
       charactersLength = (uppercase + lowercase + specialchars).length
       for (let i = 0; i < length; i++) {
-        result += uppercase.charAt(Math.floor(Math.random() * charactersLength)) + lowercase.charAt(Math.floor(Math.random() * charactersLength)) + specialchars.charAt(Math.floor(Math.random() * charactersLength))
+        result += (uppercase + lowercase + specialchars).charAt(Math.floor(Math.random() * charactersLength))
 
       }
     }
     return result;
   }
+
   //Display Password
-  window.confirm(displaypass(pwlength))
+  var password = displaypass(pwlength);
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
   return;
 }
 
@@ -165,6 +168,3 @@ function writePassword() {
 
 let generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
-
-
-
