@@ -18,6 +18,8 @@ function writePassword() {
     var tryAgain = window.confirm("Sorry - password length must be between 8-128 characters. Try again?")
   } if ((tryAgain)) {
     var pwlength = window.prompt("How many characters do you want your password to be? Choose a number between 8-128")
+  } if ((pwlength < 8 || pwlength > 128) & (!tryAgain)) {
+    return
   }
 
   var includeNumbers = window.confirm("Do you want to include numbers")
@@ -154,8 +156,11 @@ function writePassword() {
     }
     return result;
   }
+
   //Display Password
-  window.confirm(displaypass(pwlength))
+  var password = displaypass(pwlength);
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
   return;
 }
 
