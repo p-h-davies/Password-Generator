@@ -24,7 +24,7 @@ Once you have entered all of your preferences, a randomly generated password, cr
 
 ## Credits
 
-Starter code was provided by Xandromus (Xander Rapstine) - this code was the structure of the HTML, .gitignore and CSS, and also provided the empty (aside from comments) script.js file and README file.
+Starter code was provided by Xandromus (Xander Rapstine) - this code was the structure of the HTML, .gitignore and CSS, and also provided the empty (aside from comments) script.js file and README file. You can find the starter code here: https://github.com/coding-boot-camp/friendly-parakeet.
 
 
 ## License
